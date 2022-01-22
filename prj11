@@ -1,0 +1,32 @@
+import java.util.PriorityQueue;
+
+class Solution {
+    public static int sco_function(int[] sco, int k)
+	{
+		int count = 0;
+		PriorityQueue<Integer> heap = new PriorityQueue<>();
+		
+		for(int i = 0; i < sco.length; i++)
+		{
+			heap.add(sco[i]);
+		}
+		
+		while(heap.peek() < k && heap.size() != 1)
+		{
+			int temp1 = heap.poll();
+			int temp2 = heap.poll();
+			temp1 = temp1 + temp2 * 2;
+			heap.add(temp1);
+			count++;
+		}
+		if(heap.size() == 1 && heap.peek() < k)
+		{
+			return -1;
+		}
+		return count;
+	}
+    
+    public int solution(int[] scoville, int K) {
+        return sco_function(scoville, K);
+    }
+}
