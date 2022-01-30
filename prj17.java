@@ -1,10 +1,10 @@
-package prj15;
+package prj17;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class main15 {
+public class main17 {
 
 	public static int[] lightRoute(String[] grid) {
 		char[][] charArr = new char[grid.length][grid[0].length()];
@@ -18,7 +18,7 @@ public class main15 {
 
 		for (int i = 0; i < charArr.length; i++) {
 			for (int j = 0; j < grid[0].length(); j++) {
-				for (int d = 0; d < 4; d++) { // d´Â ¹æÇâÀ» ÀÇ¹ÌÇÕ´Ï´Ù. 0Àº ÇÏ, 1Àº ÁÂ, 2´Â »ó, 3Àº ¿ì ¹æÇâÀÔ´Ï´Ù.
+				for (int d = 0; d < 4; d++) { // dëŠ” ë°©í–¥ì„ ì˜ë¯¸í•©ë‹ˆë‹¤. 0ì€ í•˜, 1ì€ ì¢Œ, 2ëŠ” ìƒ, 3ì€ ìš° ë°©í–¥ìž…ë‹ˆë‹¤.
 					int temp = lightMove(charArr, i, j, d, isVisited);
 					if (temp != 0) {
 						list.add(temp);
@@ -47,22 +47,22 @@ public class main15 {
 				d = (d + 3) % 4;
 			}
 			switch (d) {
-			case 0: // ÇÏ
+			case 0: // í•˜
 			{
 				i = (i + 1) % height;
 				break;
 			}
-			case 1: // ÁÂ
+			case 1: // ì¢Œ
 			{
 				j = (j + width - 1) % width;
 				break;
 			}
-			case 2: // »ó
+			case 2: // ìƒ
 			{
 				i = (i + height - 1) % height;
 				break;
 			}
-			case 3: // ¿ì
+			case 3: // ìš°
 			{
 				j = (j + 1) % width;
 				break;
